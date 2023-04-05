@@ -4,15 +4,30 @@
 #include <gl\glut.h>
 #include <stdio.h>
 
+#define DRAW_POINT 1
 int X, Y;
 int flipX = 800, flipY = 500;
-
 void display();
+void menuFunc();
 void init()
 {
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
     gluOrtho2D(0.0, flipX, flipY, 0.0);
+    glutCreateMenu(menuFunc);
+    glutAddMenuEntry("Menu Option 1", DRAW_POINT);
+    // Add more menu options as needed
+    glutAttachMenu(GLUT_RIGHT_BUTTON); // Attach menu to right mouse button
+}
+void menuFunc(int option)
+{
+    switch(option)
+    {
+        case DRAW_POINT:
+            // Handle menu option 1
+            break;
+        // Add more cases for other menu options as needed
+    }
 }
 void draw()
 {
@@ -25,7 +40,7 @@ void draw()
 }
 void mouse(int button, int state, int x, int y)
 {
-    
+
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
     {
         X = x;
