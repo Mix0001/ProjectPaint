@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1680621667 source:c:\graphiccom\projectpaint\main.c
+	<windows.h>
+	<gl\gl.h>
+	<gl\glu.h>
+	<gl\glut.h>
+	<stdio.h>
+
