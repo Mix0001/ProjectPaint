@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1680621667 source:c:\graphiccom\projectpaint\main.c
+1680762105 source:c:\graphiccom\projectpaint\main.c
 	<windows.h>
 	<gl\gl.h>
 	<gl\glu.h>
 	<gl\glut.h>
 	<stdio.h>
 
-1680752288 source:d:\class3_2\comg\projectpaint\main.c
+1680758912 source:d:\class3_2\comg\projectpaint\main.c
 	<windows.h>
 	<gl\gl.h>
 	<gl\glu.h>
