@@ -29,37 +29,10 @@ void drawSubMenu(int option){
     switch(option)
     {
         case DRAW_POINT:
-            /*glPointSize(2);
-            glColor3f(1.0, 0.0, 0.0);
-            glBegin(GL_POINTS);
-            glVertex2i(X, Y);
-            glEnd();
-            glFlush();*/
             checkCase=0;
             break;
         case DRAW_CIRCLE:
             checkCase=1;
-            /*int xcenter = 100, ycenter = 100, r = 80;
-            int x = 0, y = r;
-            int p = 1-r;
-            glColor3f(1,1,1);
-            glPointSize(10);
-            glBegin(GL_POINTS);
-            glVertex2d(x + xcenter, y + ycenter);
-            glEnd();
-            while(x<y){
-                x++;
-                if(p<0){
-                    p = p+2*x+1;
-                }else{
-                    y--;
-                    p = p+2*x+1-2*y;
-                }
-                glBegin(GL_POINTS);
-                plotQ(x,y,xcenter,ycenter);
-                glEnd();
-                glFlush();
-            }*/
             break;
         case DRAW_TRIANGLE:
             // Handle drawing a triangle
@@ -124,7 +97,16 @@ void createMenu()
 
     glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
-
+void plotQ(int x, int y, int xcenter, int ycenter){
+    glVertex2d(x + xcenter, y + ycenter);//Q1
+    glVertex2d(y + xcenter, x + ycenter);//Q2
+    glVertex2d(y + xcenter, -x + ycenter);//Q3
+    glVertex2d(x + xcenter, -y + ycenter);//Q4
+    glVertex2d(-x + xcenter, -y + ycenter);//Q5
+    glVertex2d(-y + xcenter, -x + ycenter);//Q6
+    glVertex2d(-y + xcenter, x + ycenter);//Q7
+    glVertex2d(-x + xcenter, y + ycenter);//Q8
+}
 void draw()
 {
     if(checkCase==0){
@@ -136,7 +118,31 @@ void draw()
         glFlush();
     }
     else if(checkCase==1){
-
+        int xcenter = X, ycenter = Y, r = 80;
+        int x = 0, y = r;
+        int p = 1-r;
+        glColor3f(r,g,b);
+        glPointSize(2);
+        glBegin(GL_POINTS);
+        glVertex2d(x + xcenter, y + ycenter);
+        glEnd();
+        while(x<y)
+        {
+            x++;
+            if(p<0)
+            {
+                p = p+2*x+1;
+            }
+            else
+            {
+                y--;
+                p = p+2*x+1-2*y;
+            }
+            glBegin(GL_POINTS);
+            plotQ(x,y,xcenter,ycenter);
+            glEnd();
+            glFlush();
+        }
     }
 
 }
