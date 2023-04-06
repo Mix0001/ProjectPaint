@@ -8,7 +8,7 @@
 #define DRAW_CIRCLE 2
 #define DRAW_TRIANGLE 3
 #define DRAW_RACTANGLE 4
-//////
+
 
 int mainMenu, colorMenu, drawMenu;
 int X, Y, r, g, b;
