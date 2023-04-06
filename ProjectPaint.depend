@@ -6,3 +6,10 @@
 	<gl\glut.h>
 	<stdio.h>
 
+1680751381 source:d:\class3_2\comg\projectpaint\main.c
+	<windows.h>
+	<gl\gl.h>
+	<gl\glu.h>
+	<gl\glut.h>
+	<stdio.h>
+

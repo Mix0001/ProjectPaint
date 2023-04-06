@@ -12,6 +12,7 @@
 
 int mainMenu, colorMenu, drawMenu;
 int X, Y, r, g, b;
+int checkCase=0;
 int flipX = 800, flipY = 500;
 void display();
 void menuFunc();
@@ -28,15 +29,37 @@ void drawSubMenu(int option){
     switch(option)
     {
         case DRAW_POINT:
-            glPointSize(2);
+            /*glPointSize(2);
             glColor3f(1.0, 0.0, 0.0);
             glBegin(GL_POINTS);
             glVertex2i(X, Y);
             glEnd();
-            glFlush();
+            glFlush();*/
+            checkCase=0;
             break;
         case DRAW_CIRCLE:
-            // Handle drawing a circle
+            checkCase=1;
+            /*int xcenter = 100, ycenter = 100, r = 80;
+            int x = 0, y = r;
+            int p = 1-r;
+            glColor3f(1,1,1);
+            glPointSize(10);
+            glBegin(GL_POINTS);
+            glVertex2d(x + xcenter, y + ycenter);
+            glEnd();
+            while(x<y){
+                x++;
+                if(p<0){
+                    p = p+2*x+1;
+                }else{
+                    y--;
+                    p = p+2*x+1-2*y;
+                }
+                glBegin(GL_POINTS);
+                plotQ(x,y,xcenter,ycenter);
+                glEnd();
+                glFlush();
+            }*/
             break;
         case DRAW_TRIANGLE:
             // Handle drawing a triangle
@@ -104,12 +127,18 @@ void createMenu()
 
 void draw()
 {
-    glPointSize(2);
-    glColor3f(r,g,b);
-    glBegin(GL_POINTS);
-    glVertex2i(X, Y);
-    glEnd();
-    glFlush();
+    if(checkCase==0){
+        glPointSize(2);
+        glColor3f(r,g,b);
+        glBegin(GL_POINTS);
+        glVertex2i(X, Y);
+        glEnd();
+        glFlush();
+    }
+    else if(checkCase==1){
+
+    }
+
 }
 void mouse(int button, int state, int x, int y) //จับการคลิกของเมาส์
 {
